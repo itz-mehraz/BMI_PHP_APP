@@ -22,9 +22,6 @@ A web application to calculate Body Mass Index (BMI) and store user data.
    ```bash
    git clone https://github.com/yourusername/bmi-calculator.git
    cd bmi-calculator
-Certainly! Here’s a shorter and simpler version of your README with images:
-
-```markdown
 
 2. **Configure Database**
 
