@@ -62,6 +62,38 @@ ALTER TABLE `users`
 --
 ALTER TABLE `users`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `BMIUsers`
+--
+
+CREATE TABLE `BMIUsers` (
+    `BMIUserID` INT AUTO_INCREMENT PRIMARY KEY,
+    `UserID` INT NOT NULL,
+    `Age` INT,
+    `Gender` ENUM('Male', 'Female', 'Other'),
+    `CreatedAt` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (`UserID`) REFERENCES `users`(`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `BMIRecords`
+--
+
+CREATE TABLE `BMIRecords` (
+    `RecordID` INT AUTO_INCREMENT PRIMARY KEY,
+    `BMIUserID` INT,
+    `Height` FLOAT NOT NULL,
+    `Weight` FLOAT NOT NULL,
+    `BMI` FLOAT NOT NULL,
+    `RecordedAt` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (`BMIUserID`) REFERENCES `BMIUsers`(`BMIUserID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
